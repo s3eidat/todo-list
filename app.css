@@ -1,0 +1,36 @@
+.td-main { --maxw: 820px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.add-row { display: flex; gap: 8px; }
+.add { min-height: 48px; font-size: 16px; }
+.add-row .btn { height: 48px; }
+.preview { min-height: 30px; margin-top: 8px; gap: 6px; }
+.chip.p1 { color: var(--danger); } .chip.p2 { color: var(--warn); } .chip.p3 { color: var(--accent); }
+.lists { gap: 6px; }
+.list-chip { cursor: pointer; }
+.list-chip[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+
+.tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.task {
+  display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 12px;
+  background: var(--surface-2); border: 1px solid var(--line); border-left: 4px solid transparent; transition: border-color var(--dur), opacity var(--dur);
+}
+.task:hover { border-color: var(--line-strong); }
+.task.p1 { border-left-color: var(--danger); } .task.p2 { border-left-color: var(--warn); } .task.p3 { border-left-color: var(--accent); }
+.task .tick { width: 20px; height: 20px; flex: none; cursor: pointer; }
+.t-body { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.t-title { overflow-wrap: anywhere; font-size: 15px; }
+.task.done .t-title { color: var(--text-3); text-decoration: line-through; }
+.t-meta { display: flex; gap: 6px; flex-wrap: wrap; }
+.t-meta .chip { font-size: 11.5px; padding: 2px 8px; }
+.t-input { flex: 1; min-height: 34px; padding: 5px 9px; }
+.grip { color: var(--text-3); font-size: 16px; cursor: grab; padding: 4px 2px; touch-action: none; user-select: none; }
+.no-drag .grip { visibility: hidden; width: 6px; padding: 0; overflow: hidden; }
+.t-edit, .t-del { opacity: 0; transition: opacity var(--dur); }
+.task:hover .t-edit, .task:hover .t-del, .task:focus-within .t-edit, .task:focus-within .t-del { opacity: 1; }
+@media (hover: none) { .t-edit, .t-del { opacity: .7; } }
+.task.lifted { position: fixed; z-index: 70; pointer-events: none; box-shadow: var(--shadow-pop); }
+.placeholder { border: 1.5px dashed var(--accent); border-radius: 12px; background: var(--accent-soft); }
+body.is-dragging, body.is-dragging * { cursor: grabbing !important; user-select: none; }
+.foot { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); gap: 4px; }
+.keys kbd { font-size: 10.5px; padding: 2px 5px; }
+@media (max-width: 560px) { .add-row .btn { padding: 0 12px; } }
